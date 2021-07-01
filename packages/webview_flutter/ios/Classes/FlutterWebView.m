@@ -363,6 +363,7 @@
 
 - (void)updateJsMode:(NSNumber*)mode {
   WKPreferences* preferences = [[_webView configuration] preferences];
+  [preferences setValue:@YES forKey:@"fullScreenEnabled"];
   switch ([mode integerValue]) {
     case 0:  // disabled
       [preferences setJavaScriptEnabled:NO];
