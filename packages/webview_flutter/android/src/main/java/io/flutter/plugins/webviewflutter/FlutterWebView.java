@@ -116,7 +116,6 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
         this.currentUiSettings = currentView.getSystemUiVisibility();
         currentView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN |
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
-        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
       }
       isFullscreen = true;
       onScreenStateChanged(isFullscreen);
@@ -133,7 +132,6 @@ public class FlutterWebView implements PlatformView, MethodCallHandler {
         ((FrameLayout) activity.getWindow().getDecorView()).removeView(this.customView);
         this.customView = null;
         activity.getWindow().getDecorView().setSystemUiVisibility(this.currentUiSettings);
-        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         customViewCallback.onCustomViewHidden();
       }
